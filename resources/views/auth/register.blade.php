@@ -41,7 +41,7 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-lg-auto"> <!-- Ganti ms-lg-auto dengan ms-auto untuk rata kanan -->
                     <li class="nav-item">
@@ -92,7 +92,7 @@
                                             <a href="/login" class="btn btn-link">Sudah Punya Akun?</a>
                                         </div>
                                     </form>
-                                    
+
                                 </div>
                             </div>
                             <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
@@ -110,7 +110,7 @@
             </div>
         </main>
     </div>
-    <footer class="footer">
+    <footer class="footer fixed-bottom">
         © 2024 Copyright | Prime Motocare & Detailing
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

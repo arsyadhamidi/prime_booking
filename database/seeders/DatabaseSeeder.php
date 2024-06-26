@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'email_verified_at' => Carbon::now(),
+            'level' => 'Admin',
             'password' => bcrypt('12345678'),
             'Alamat' => 'Jl. Limau Manis'
          ]);

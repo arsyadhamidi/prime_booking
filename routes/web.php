@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Middleware\CekLevel;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Pelanggan\PelangganReviewController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-
+use App\Http\Controllers\Setting\SettingController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,11 +29,11 @@ Route::get('/backend', function () {
     return view('backend.main');
 });
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class,'authenticate']);
 Route::get('/logout', [LoginController::class,'logout']);
 
-Route::get('/register', [RegisterController::class, 'register'])->middleware('guest');
+Route::get('/register', [RegisterController::class, 'register']);
 Route::post('/register', [RegisterController::class, 'create']);
 
 Route::get('/home', function () {
@@ -90,7 +91,27 @@ Route::get('/dataservice', function () {
     return view('backend.dataservice.index');
 });
 
-Route::get('/pelanggan/create', [PelangganController::class, 'create'])->name('pelanggan.create');
-Route::post('/pelanggan', [PelangganController::class, 'store'])->name('pelanggan.store');
 
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    // Setting
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
+    Route::post('/setting/updateprofile', [SettingController::class, 'updateprofile'])->name('setting.updateprofile');
+    Route::post('/setting/updateemail', [SettingController::class, 'updateemail'])->name('setting.updateemail');
+    Route::post('/setting/updatepassword', [SettingController::class, 'updatepassword'])->name('setting.updatepassword');
+    Route::post('/setting/updategambar', [SettingController::class, 'updategambar'])->name('setting.updategambar');
+    Route::post('/setting/hapusgambar', [SettingController::class, 'hapusgambar'])->name('setting.hapusgambar');
+
+    // Admin
+    Route::group(['middleware' => [CekLevel::class . ':Admin']], function () {
+        Route::get('/data-user', [AdminUserController::class, 'index'])->name('data-user.index');
+        Route::get('/data-user/create', [AdminUserController::class, 'create'])->name('data-user.create');
+        Route::get('/data-user/edit/{id}', [AdminUserController::class, 'edit'])->name('data-user.edit');
+        Route::post('/data-user/store', [AdminUserController::class, 'store'])->name('data-user.store');
+        Route::post('/data-user/update/{id}', [AdminUserController::class, 'update'])->name('data-user.update');
+        Route::post('/data-user/destroy/{id}', [AdminUserController::class, 'destroy'])->name('data-user.destroy');
+    });
+});
 
