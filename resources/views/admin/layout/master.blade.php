@@ -80,6 +80,14 @@
                         </a>
                     </li>
 
+                    {{-- Data Layanan --}}
+                    <li class="menu-item @yield('menuDataLayanan')">
+                        <a href="{{ route('data-layanan.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-folder"></i>
+                            <div data-i18n="Analytics">Data Layanan</div>
+                        </a>
+                    </li>
+
                     {{-- User Registrasi --}}
                     <li class="menu-item @yield('menuUserRegistrasi')">
                         <a href="{{ route('data-user.index') }}" class="menu-link">
@@ -230,8 +238,6 @@
     <!-- / Layout wrapper -->
 
     <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="{{ asset('admin/assets/vendor/libs/jquery/jquery.js') }}"></script>
     <script src="{{ asset('admin/assets/vendor/libs/popper/popper.js') }}"></script>
     <script src="{{ asset('admin/assets/vendor/js/bootstrap.js') }}"></script>
     <script src="{{ asset('admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>

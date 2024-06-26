@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminLayananController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Middleware\CekLevel;
 use Illuminate\Support\Facades\Route;
@@ -106,6 +107,16 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':Admin']], function () {
+
+        // Data Layanan
+        Route::get('/data-layanan', [AdminLayananController::class, 'index'])->name('data-layanan.index');
+        Route::get('/data-layanan/create', [AdminLayananController::class, 'create'])->name('data-layanan.create');
+        Route::get('/data-layanan/edit/{id}', [AdminLayananController::class, 'edit'])->name('data-layanan.edit');
+        Route::post('/data-layanan/store', [AdminLayananController::class, 'store'])->name('data-layanan.store');
+        Route::post('/data-layanan/update/{id}', [AdminLayananController::class, 'update'])->name('data-layanan.update');
+        Route::post('/data-layanan/destroy/{id}', [AdminLayananController::class, 'destroy'])->name('data-layanan.destroy');
+
+        // User registrasi
         Route::get('/data-user', [AdminUserController::class, 'index'])->name('data-user.index');
         Route::get('/data-user/create', [AdminUserController::class, 'create'])->name('data-user.create');
         Route::get('/data-user/edit/{id}', [AdminUserController::class, 'edit'])->name('data-user.edit');
