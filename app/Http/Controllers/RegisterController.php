@@ -14,20 +14,27 @@ class RegisterController extends Controller
     }
 
 
-    public function create(Request $request)
+    public function store(Request $request)
     {
       $validatedData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:5|max:255',
-
+            'alamat' => 'required',
+       ], [
+            'name.required' => 'Nama Lengkap wajib diisi',
+            'email.required' => 'Email Address wajib diisi',
+            'email.dns' => 'Email harus memiliki format valid~',
+            'emai;.unique' => 'Email wajib diisi',
+            'alamat.required' => 'Alamat wajib diisi',
        ]);
 
+       $validatedData['level'] = 'Customer';
        $validatedData['password'] = bcrypt($validatedData['password']);
 
-       User::create($validatedData);
+       $user = User::create($validatedData);
 
-    //    $request->session()->flash('success', 'Registration successfull! Please login');
+       $user->sendEmailVerificationNotification();
 
        return redirect('/login')->with('success', 'Registrasi Berhasil! Silakan Login');
     }

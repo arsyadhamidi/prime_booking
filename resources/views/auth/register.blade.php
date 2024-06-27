@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,18 +16,25 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
+
         .app-body {
             padding: 50px 0;
         }
+
         .card-body img {
             margin-top: -30px;
         }
+
         .card-body {
-            position: relative; /* Adjust positioning */
+            position: relative;
+            /* Adjust positioning */
         }
+
         .btn-link {
-            text-decoration: none; /* Remove underline from links */
+            text-decoration: none;
+            /* Remove underline from links */
         }
+
         .footer {
             background-color: rgba(13, 97, 224, 0.2);
             text-align: center;
@@ -34,6 +42,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -45,7 +54,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-lg-auto"> <!-- Ganti ms-lg-auto dengan ms-auto untuk rata kanan -->
                     <li class="nav-item">
-                        <a href="/home" class="btn btn-primary" data-mdb-ripple-init data-mdb-ripple-color="dark">Home</a>
+                        <a href="/home" class="btn btn-primary" data-mdb-ripple-init
+                            data-mdb-ripple-color="dark">Home</a>
                     </li>
                 </ul>
             </div>
@@ -61,31 +71,54 @@
                             <div class="card p-4">
                                 <div class="card-body">
                                     <form method="POST" action="/register">
+                                        @csrf
                                         <h1>Register User</h1>
                                         <p class="text-muted">Create your account</p>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
                                             </div>
-                                            <input type="name" class="form-control" placeholder="Username" name="name" required>
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nama Lengkap"
+                                                name="name">
+                                            @error('name')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                                             </div>
-                                            <input type="email" class="form-control" placeholder="Email" name="email" required>
+                                            <input type="email"
+                                                class="form-control @error('email') is-invalid @enderror"
+                                                placeholder="Email" name="email">
+                                            @error('email')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
-                                        <div class="input-group mb-4">
+                                        <div class="input-group
+                                                mb-4">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
                                             </div>
-                                            <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                            <input type="password"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                placeholder="Password" name="password">
+                                            @error('password')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="input-group mb-4">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                            </div>
-                                            <input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" required>
+                                            <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" rows="5"
+                                                placeholder="Alamat Domisili">{{ old('alamat') }}</textarea>
+                                            @error('alamat')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <button type="submit" class="btn btn-primary">Register</button>
@@ -100,7 +133,8 @@
                                     <div>
                                         <h2>Welcome</h2>
                                         <p>Join Prime Motocare & Detailing</p>
-                                        <img src="images/primekuning.jpeg" alt="Prime Motocare & Detailing" style="max-width: 60%; margin-top: 20px; margin-bottom: 20px;">
+                                        <img src="images/primekuning.jpeg" alt="Prime Motocare & Detailing"
+                                            style="max-width: 60%; margin-top: 20px; margin-bottom: 20px;">
                                     </div>
                                 </div>
                             </div>
@@ -117,4 +151,5 @@
     <script src="https://cdnjs.cloudflare.com/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
