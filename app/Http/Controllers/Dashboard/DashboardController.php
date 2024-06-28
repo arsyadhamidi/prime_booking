@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard.index');
+        $users = Auth::user();
+        if ($users->level == 'Admin') {
+            return view('admin.dashboard.index');
+        } elseif ($users->level == 'Customer') {
+            return view('frontend.booking.booking');
+        }else{
+            return redirect('/');
+        }
     }
 }

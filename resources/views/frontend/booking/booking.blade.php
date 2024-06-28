@@ -63,13 +63,14 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-lg-auto"> <!-- Ganti ms-lg-auto dengan ms-auto untuk rata kanan -->
                 <li class="nav-item">
-                    <a href="/home" class="btn btn-outline-primary" data-mdb-ripple-init data-mdb-ripple-color="dark">Home</a>
+                    <a href="/" class="btn btn-outline-primary" data-mdb-ripple-init data-mdb-ripple-color="dark">Home</a>
+                    <a href="/logout" class="btn btn-outline-primary" data-mdb-ripple-init data-mdb-ripple-color="dark">Logout</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-  
+
 
 <section class="vh-100" style="background-color: #ececec;">
   <div class="container py-5 h-100">
@@ -135,7 +136,7 @@
                       <button class="btn btn-primary btn-lg" type="submit">Daftar</button>
                     </div>
                   </form>
-                  
+
                   <div class="loading-overlay" id="loadingOverlay">
                     <i class="fas fa-spinner fa-spin"></i> Tunggu sebentar...
                   </div>

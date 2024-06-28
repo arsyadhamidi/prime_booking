@@ -9,7 +9,12 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Setting\SettingController;
 use App\Http\Controllers\Admin\AdminLayananController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Landing\LandingAboutController;
 use App\Http\Controllers\Landing\LandingBookingController;
+use App\Http\Controllers\Landing\LandingContactController;
+use App\Http\Controllers\Landing\LandingController;
+use App\Http\Controllers\Landing\LandingDetailController;
+use App\Http\Controllers\Landing\LandingReviewController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -22,16 +27,11 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/backend', function () {
-    return view('backend.main');
-});
+Route::get('/', [LandingController::class, 'index']);
+Route::get('/about', [LandingAboutController::class, 'index']);
+Route::get('/review', [LandingReviewController::class, 'index']);
+Route::get('/contact', [LandingContactController::class, 'index']);
+Route::get('/detail', [LandingDetailController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class,'authenticate']);
@@ -42,7 +42,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 // Verified Email
 Route::get('/email/verify', function () {
-    return view('verify');
+    return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
 
 // Verifikasi email
@@ -59,32 +59,11 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Tautan verifikasi telah dikirim ulang!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-
-Route::get('/home', function () {
-    return view('frontend.home');
-})->name('home');
-
-Route::get('/about', function () {
-    return view('frontend.about.about');
-})->name('about');
-
-Route::get('/contact', function () {
-    return view('frontend.contact.contact');
-})->name('contact');
-
-Route::get('/detail', function () {
-    return view('frontend.detail.detail');
-})->name('detail');
-
-Route::get('/review', function () {
-    return view('frontend.review.review');
-})->name('review');
-
-Route::post('/review', 'ReviewController@store')->name('review.submit');
-
+Route::get('/verify-email', function () {
+    return view('auth.verify-email');
+});
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    // Landing
     Route::get('/bookinghome', [LandingBookingController::class, 'index'])->name('bookinghome.index');
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index']);

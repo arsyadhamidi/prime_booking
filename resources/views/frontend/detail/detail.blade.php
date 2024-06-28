@@ -45,7 +45,7 @@ https://templatemo.com/tm-584-pod-talk
 
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand me-lg-5 me-0" href="index.html">
+                <a class="navbar-brand me-lg-5 me-0" href="/">
                     <img src="images/logoprime.png" class="logo-image img-fluid" alt="Prime Motocare & Detailing">
                 </a>
 
@@ -68,7 +68,7 @@ https://templatemo.com/tm-584-pod-talk
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/home">Home</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
 
                         <li class="nav-item">
@@ -165,7 +165,7 @@ https://templatemo.com/tm-584-pod-talk
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-lg-9 col-12">
                                 <div class="custom-block-info">
                                     <div class="custom-block-top d-flex mb-1">
@@ -186,7 +186,7 @@ https://templatemo.com/tm-584-pod-talk
                                     <p>- Carnauba wax(glossy) / ultra matte (doff)</p>
                                     <p>- Dressing body kasar / plastik</p>
                                     <p>- Dressing Ban</p>
-                
+
                                 </div>
                         </div>
 
@@ -198,7 +198,7 @@ https://templatemo.com/tm-584-pod-talk
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-9 col-12">
                             <div class="custom-block-info">
                                 <div class="custom-block-top d-flex mb-1">
@@ -219,7 +219,7 @@ https://templatemo.com/tm-584-pod-talk
                                 <p>- Poles mesin 1 step (quick polish with sealent wax)</p>
                                 <p>- Dressing body kasar / plastik</p>
                                 <p>- Dressing Ban</p>
-                            </div>  
+                            </div>
                         </div>
 
                         <div class="col-lg-3 col-12">
@@ -230,7 +230,7 @@ https://templatemo.com/tm-584-pod-talk
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-9 col-12">
                             <div class="custom-block-info">
                                 <div class="custom-block-top d-flex mb-1">
@@ -252,7 +252,7 @@ https://templatemo.com/tm-584-pod-talk
                                 <p>- Poles mesin multi step (cutting, polish, finish, sealent wax)</p>
                                 <p>- Dressing body kasar / plastik</p>
                                 <p>- Dressing Ban</p>
-                            </div>  
+                            </div>
                         </div>
 
                         <div class="col-lg-3 col-12">
@@ -263,7 +263,7 @@ https://templatemo.com/tm-584-pod-talk
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-9 col-12">
                             <div class="custom-block-info">
                                 <div class="custom-block-top d-flex mb-1">
@@ -286,7 +286,7 @@ https://templatemo.com/tm-584-pod-talk
                                 <p>- Dressing body kasar / plastik</p>
                                 <p>- Dressing Ban</p>
                                 <P>- Double layers nano ceramic coating 9H</P>
-                            </div>  
+                            </div>
                         </div>
 
                         <div class="col-lg-3 col-12">
@@ -297,7 +297,7 @@ https://templatemo.com/tm-584-pod-talk
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-9 col-12">
                             <div class="custom-block-info">
                                 <div class="custom-block-top d-flex mb-1">
@@ -319,7 +319,7 @@ https://templatemo.com/tm-584-pod-talk
                                 <p>- Poles mesin multi step (cutting, polish, finish, sealent wax)</p>
                                 <p>- Dressing body kasar / plastik</p>
                                 <p>- Dressing Ban</p>
-                            </div>  
+                            </div>
                         </div>
 
                         <div class="col-lg-3 col-12">
@@ -330,7 +330,7 @@ https://templatemo.com/tm-584-pod-talk
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-9 col-12">
                             <div class="custom-block-info">
                                 <div class="custom-block-top d-flex mb-1">
@@ -353,7 +353,7 @@ https://templatemo.com/tm-584-pod-talk
                                 <p>- Dressing body kasar / plastik</p>
                                 <p>- Dressing Ban</p>
                                 <P>- Double layers nano ceramic coating 9H</P>
-                            </div>  
+                            </div>
                         </div>
 
                         <div class="col-lg-3 col-12">
@@ -364,7 +364,7 @@ https://templatemo.com/tm-584-pod-talk
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-9 col-12">
                             <div class="custom-block-info">
                                 <div class="custom-block-top d-flex mb-1">
@@ -387,7 +387,7 @@ https://templatemo.com/tm-584-pod-talk
                                 <p>- Dressing body kasar / plastik</p>
                                 <p>- Dressing Ban</p>
                                 <P>- Double layers nano ceramic coating 10H</P>
-                            </div>  
+                            </div>
                         </div>
                     </div>
 
@@ -443,7 +443,7 @@ https://templatemo.com/tm-584-pod-talk
                                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.305919954598!2d100.3506886!3d-0.9182701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b91193b964e5%3A0x113a8a68e713f9df!2sPrime%20Motocare%20%26%20Detailing!5e0!3m2!1sid!2sid!4v1714452915038!5m2!1sid!2sid"
                                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
-                    </section>    
+                    </section>
                 </div>
 
             </div>

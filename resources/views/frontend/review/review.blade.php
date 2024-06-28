@@ -67,7 +67,7 @@
             {{ session('success') }}
         </div>
     @endif
-    <form action="{{ route('review.submit') }}" method="POST">
+    <form action="#" method="POST">
         @csrf
         <div class="mb-3">
             <label for="nama" class="form-label">Nama</label>
