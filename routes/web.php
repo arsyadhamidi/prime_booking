@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Setting\SettingController;
 use App\Http\Controllers\Admin\AdminLayananController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Landing\LandingBookingController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -71,18 +72,6 @@ Route::get('/contact', function () {
     return view('frontend.contact.contact');
 })->name('contact');
 
-Route::get('/bookinghome', function () {
-    return view('frontend.booking.booking');
-})->name('booking');
-
-Route::get('/dashboard', function () {
-    return view('frontend.booking.booking');
-})->name('dashboard');
-
-Route::get('/confirm/booking', function () {
-    return view('frontend.booking.confirm');
-})->name('confirm');
-
 Route::get('/detail', function () {
     return view('frontend.detail.detail');
 })->name('detail');
@@ -94,32 +83,9 @@ Route::get('/review', function () {
 Route::post('/review', 'ReviewController@store')->name('review.submit');
 
 
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
-
-Route::get('/bookingadmin', function () {
-    return view('backend.booking.index');
-});
-
-Route::get('/dashboard', function () {
-    return view('backend.layouts.main');
-});
-
-Route::get('/datapelanggan', function () {
-    return view('backend.datapelanggan.index');
-});
-
-Route::get('/dataservice', function () {
-    return view('backend.dataservice.index');
-});
-
-Route::get('/verify-email', function () {
-    return view('auth.verify-email');
-});
-
-
 Route::group(['middleware' => ['auth', 'verified']], function () {
+    // Landing
+    Route::get('/bookinghome', [LandingBookingController::class, 'index'])->name('bookinghome.index');
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index']);
 
