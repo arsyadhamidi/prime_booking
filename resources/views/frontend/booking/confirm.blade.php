@@ -161,8 +161,8 @@ https://templatemo.com/tm-584-pod-talk
                         <div class="owl-carousel owl-theme">
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan1.jpeg') }}" class="owl-carousel-image img-fluid"
-                                        alt="">
+                                    <img src="{{ asset('images/layanan1.jpeg') }}"
+                                        class="owl-carousel-image img-fluid" alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2">Prime Signature Wash</h4>
                                         <span class="badge">Free Mineral Water</span>
@@ -273,7 +273,8 @@ https://templatemo.com/tm-584-pod-talk
         </section>
 
         <h1 class="text-center mt-5">Detail Booking</h1>
-        <p class="text-center">Silahkan konfirmasi tindak lanjut booking dengan waktu <span id="countdown">60</span> detik.</p>
+        <p class="text-center">Silahkan konfirmasi tindak lanjut booking dengan waktu <span id="countdown">60</span>
+            detik.</p>
 
         <div class="container my-5">
             <div class="row py-5">
@@ -327,20 +328,32 @@ https://templatemo.com/tm-584-pod-talk
                                 <td>7</td>
                                 <td>Status</td>
                                 <td>:</td>
-                                <td>{{ $booking->status ?? '-' }}</td>
+                                <td>
+                                    @if ($booking->status == 'Proses')
+                                        <span class="badge badge-primary">{{ $booking->status ?? '-' }}</span>
+                                    @elseif($booking->status == 'Setuju')
+                                        <span class="badge badge-success">{{ $booking->status ?? '-' }}</span>
+                                    @elseif($booking->status == 'Batal')
+                                        <span class="badge badge-danger">{{ $booking->status ?? '-' }}</span>
+                                    @else
+                                        <span class="badge badge-dark">{{ $booking->status ?? '-' }}</span>
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <td>8</td>
                                 <td>Aksi</td>
                                 <td></td>
                                 <td class="d-flex flex-wrap">
-                                    <form action="{{ route('bookinghome.updatesetuju', $booking->id) }}" method="POST">
+                                    <form action="{{ route('bookinghome.updatesetuju', $booking->id) }}"
+                                        method="POST">
                                         @csrf
                                         <button type="submit" class="btn btn-success">
                                             Setuju
                                         </button>
                                     </form>
-                                    <form action="{{ route('bookinghome.updatebatal', $booking->id) }}" method="POST" class="mx-2">
+                                    <form action="{{ route('bookinghome.updatebatal', $booking->id) }}"
+                                        method="POST" class="mx-2">
                                         @csrf
                                         <button type="submit" class="btn btn-danger">
                                             Batal

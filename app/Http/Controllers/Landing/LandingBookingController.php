@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\Layanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class LandingBookingController extends Controller
 {
@@ -73,5 +74,14 @@ class LandingBookingController extends Controller
         return view('frontend.booking.riwayat', [
             'bookings' => $booking,
         ]);
+    }
+
+    public function generatepdf($id)
+    {
+        $booking = Booking::where('id', $id)->first();
+
+    	$pdf = PDF::loadview('frontend.booking.export-pdf',['booking'=>$booking])->setPaper('A4', 'Potrait');
+    	// return $pdf->download('booking.pdf');
+    	return $pdf->stream('booking.pdf');
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminBookingController;
 use Illuminate\Http\Request;
 use App\Http\Middleware\CekLevel;
 use Illuminate\Support\Facades\Route;
@@ -65,6 +66,7 @@ Route::get('/verify-email', function () {
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/bookinghome', [LandingBookingController::class, 'index'])->name('bookinghome.index');
+    Route::get('/bookinghome/generatepdf/{id}', [LandingBookingController::class, 'generatepdf'])->name('bookinghome.generatepdf');
     Route::get('/bookinghome/riwayat', [LandingBookingController::class, 'riwayat'])->name('bookinghome.riwayat');
     Route::get('/bookinghome/confirm', [LandingBookingController::class, 'confirm'])->name('bookinghome.confirm');
     Route::post('/bookinghome/store', [LandingBookingController::class, 'store'])->name('bookinghome.store');
@@ -83,6 +85,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':Admin']], function () {
+
+        // Data Booking
+        Route::get('/data-booking', [AdminBookingController::class, 'index'])->name('data-booking.index');
 
         // Data Layanan
         Route::get('/data-layanan', [AdminLayananController::class, 'index'])->name('data-layanan.index');

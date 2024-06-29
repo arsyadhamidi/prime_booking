@@ -306,7 +306,7 @@ https://templatemo.com/tm-584-pod-talk
                                     <td>{{ $data->jam ?? '-' }}</td>
                                     <td>{{ $data->status ?? '-' }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-sm btn-danger">Download PDF</a>
+                                        <a href="{{ route('bookinghome.generatepdf', $data->id) }}" class="btn btn-sm btn-danger" target="_blank">Download PDF</a>
                                     </td>
                                 </tr>
                             @endforeach

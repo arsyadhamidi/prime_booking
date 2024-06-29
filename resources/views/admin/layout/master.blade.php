@@ -88,6 +88,14 @@
                         </a>
                     </li>
 
+                    {{-- Data Booking --}}
+                    <li class="menu-item @yield('menuDataBooking')">
+                        <a href="{{ route('data-booking.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book"></i>
+                            <div data-i18n="Analytics">Data Booking</div>
+                        </a>
+                    </li>
+
                     {{-- User Registrasi --}}
                     <li class="menu-item @yield('menuUserRegistrasi')">
                         <a href="{{ route('data-user.index') }}" class="menu-link">
