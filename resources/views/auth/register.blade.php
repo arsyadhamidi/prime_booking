@@ -54,7 +54,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-lg-auto"> <!-- Ganti ms-lg-auto dengan ms-auto untuk rata kanan -->
                     <li class="nav-item">
-                        <a href="/home" class="btn btn-primary" data-mdb-ripple-init
+                        <a href="/" class="btn btn-primary" data-mdb-ripple-init
                             data-mdb-ripple-color="dark">Home</a>
                     </li>
                 </ul>

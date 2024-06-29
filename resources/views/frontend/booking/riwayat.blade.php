@@ -135,7 +135,11 @@ https://templatemo.com/tm-584-pod-talk
                         <li class="nav-item">
                             <a class="nav-link" href="/bookinghome">Home</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('bookinghome.riwayat') }}">Riwayat</a>
+                        </li>
                     </ul>
+
 
                     <div class="ms-4">
                         <a href="/logout" class="btn btn-outline-light" data-mdb-ripple-init>Logout</a>
@@ -272,8 +276,8 @@ https://templatemo.com/tm-584-pod-talk
             </div>
         </section>
 
-        <h1 class="text-center mt-5">Detail Booking</h1>
-        <p class="text-center">Silahkan konfirmasi tindak lanjut booking dengan waktu <span id="countdown">60</span> detik.</p>
+        <h1 class="text-center mt-5">Riwayat Booking</h1>
+        <p class="text-center">Berikut ini data atau riwayat booking dari Anda di layanan kami</p>
 
         <div class="container my-5">
             <div class="row py-5">
@@ -281,73 +285,31 @@ https://templatemo.com/tm-584-pod-talk
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th style="width: 5%; text-align:center">#</th>
-                                <th>Biodata</th>
-                                <th colspan="2">Keterangan</th>
+                                <th style="width: 5%; text-align:center">No.</th>
+                                <th style="text-align:center">Nama Lengkap</th>
+                                <th style="text-align:center">Layanan</th>
+                                <th style="text-align:center">Harga</th>
+                                <th style="text-align:center">Tanggal</th>
+                                <th style="text-align:center">Jam</th>
+                                <th style="text-align:center">Status</th>
+                                <th style="text-align:center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Nama Lengkap</td>
-                                <td>:</td>
-                                <td>{{ $booking->nama ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Email Address</td>
-                                <td>:</td>
-                                <td>{{ $booking->users->email ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Layanan</td>
-                                <td>:</td>
-                                <td>{{ $booking->layanan->nama_layanan ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Layanan</td>
-                                <td>:</td>
-                                <td>{{ $booking->layanan->harga ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Tanggal</td>
-                                <td>:</td>
-                                <td>{{ $booking->tanggal ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Jam</td>
-                                <td>:</td>
-                                <td>{{ $booking->jam ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Status</td>
-                                <td>:</td>
-                                <td>{{ $booking->status ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>Aksi</td>
-                                <td></td>
-                                <td class="d-flex flex-wrap">
-                                    <form action="{{ route('bookinghome.updatesetuju', $booking->id) }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-success">
-                                            Setuju
-                                        </button>
-                                    </form>
-                                    <form action="{{ route('bookinghome.updatebatal', $booking->id) }}" method="POST" class="mx-2">
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger">
-                                            Batal
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
+                            @foreach($bookings as $data)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $data->nama ?? '-' }}</td>
+                                    <td>{{ $data->layanan->nama_layanan ?? '-' }}</td>
+                                    <td>Rp. {{ $data->layanan->harga ?? '-' }}, -</td>
+                                    <td>{{ $data->tanggal ?? '-' }}</td>
+                                    <td>{{ $data->jam ?? '-' }}</td>
+                                    <td>{{ $data->status ?? '-' }}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-sm btn-danger">Download PDF</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

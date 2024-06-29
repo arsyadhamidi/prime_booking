@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a href="/home" class="btn btn-primary btn-rounded" data-mdb-ripple-init>Home</a>
+                        <a href="/" class="btn btn-primary btn-rounded" data-mdb-ripple-init>Home</a>
                     </li>
                 </ul>
             </div>

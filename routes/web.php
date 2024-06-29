@@ -65,6 +65,11 @@ Route::get('/verify-email', function () {
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/bookinghome', [LandingBookingController::class, 'index'])->name('bookinghome.index');
+    Route::get('/bookinghome/riwayat', [LandingBookingController::class, 'riwayat'])->name('bookinghome.riwayat');
+    Route::get('/bookinghome/confirm', [LandingBookingController::class, 'confirm'])->name('bookinghome.confirm');
+    Route::post('/bookinghome/store', [LandingBookingController::class, 'store'])->name('bookinghome.store');
+    Route::post('/bookinghome/updatesetuju/{id}', [LandingBookingController::class, 'updatesetuju'])->name('bookinghome.updatesetuju');
+    Route::post('/bookinghome/updatebatal/{id}', [LandingBookingController::class, 'updatebatal'])->name('bookinghome.updatebatal');
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index']);
 

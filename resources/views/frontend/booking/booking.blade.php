@@ -1,165 +1,459 @@
-<!DOCTYPE html>
-<html lang="id">
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Booking Layanan | Prime Motocare & Detailing @2024</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css"> <!-- Update with your path -->
-    <link rel="icon" href="images/logo.ico" type="image/x-icon"> <!-- Update with your path -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <style>
-        body, button {
-            font-family: 'Roboto', sans-serif;
-        }
-        .header-section {
-            font-family: 'Anton', sans-serif;
-            color: #333;
-            background-color: #f8f9fa;
-            border-bottom: 2px solid #dee2e6;
-            padding: 20px 0;
-        }
-        .form-control, .form-control:focus {
-            border-color: #ced4da;
-            box-shadow: none;
-        }
-        .form-label {
-            font-weight: 500;
-            margin-left: 10px;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #004085;
-        }
-        .loading-overlay {
-            display: none; /* Hide by default */
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            color: white;
-            font-size: 24px;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Prime Motocare & Detailing</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="images/logo.ico" rel="icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Sono:wght@200;300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link href="css/templatemo-pod-talk.css" rel="stylesheet">
+
+    <!--
+
+TemplateMo 584 Pod Talk
+
+https://templatemo.com/tm-584-pod-talk
+
+-->
 </head>
+<style>
+    .input-container {
+        width: 220px;
+        position: relative;
+    }
+
+    .icon {
+        position: absolute;
+        right: 10px;
+        top: calc(50% + 5px);
+        transform: translateY(calc(-50% - 5px));
+    }
+
+    .input {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        transition: .2s linear;
+        border: 2.5px solid black;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .input:focus {
+        outline: none;
+        border: 0.5px solid black;
+        box-shadow: -5px -5px 0px black;
+    }
+
+    .input-container:hover>.icon {
+        animation: anim 1s linear infinite;
+    }
+
+    @keyframes anim {
+
+        0%,
+        100% {
+            transform: translateY(calc(-50% - 5px)) scale(1);
+        }
+
+        50% {
+            transform: translateY(calc(-50% - 5px)) scale(1.1);
+        }
+    }
+
+    .text-white {
+        color: rgb(255, 255, 255);
+    }
+</style>
+
 <body>
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-lg-auto"> <!-- Ganti ms-lg-auto dengan ms-auto untuk rata kanan -->
-                <li class="nav-item">
-                    <a href="/" class="btn btn-outline-primary" data-mdb-ripple-init data-mdb-ripple-color="dark">Home</a>
-                    <a href="/logout" class="btn btn-outline-primary" data-mdb-ripple-init data-mdb-ripple-color="dark">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+    <main>
 
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand me-lg-5 me-0" href="/">
+                    <img src="{{ asset('images/logo.png') }}" class="logo-image img-fluid" alt="templatemo pod talk">
+                </a>
 
-<section class="vh-100" style="background-color: #ececec;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-xl-10">
-        <div class="card shadow">
-          <div class="card-body p-md-5">
-            <div class="row g-0">
-              <div class="col-md-12 col-lg-12 col-xl-12">
-                <div class="card-body p-4 p-lg-5 text-black">
-
-                  <form id="bookingForm">
-                    <div class="header-section text-center">
-                      <i class="fas fa-user-plus fa-2x me-3" style="color: #000;"></i>
-                      <span class="h1 fw-bold">Booking Layanan</span>
+                <form action="#" method="get" class="custom-form search-form flex-fill me-3" role="search">
+                    <div class="input-container">
+                        <input type="text" name="text" class="input" placeholder="search...">
+                        <span class="icon">
+                            <svg width="19px" height="19px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path opacity="1" d="M14 5H20" stroke="#000" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path opacity="1" d="M14 8H17" stroke="#000" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2"
+                                        stroke="#000" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path opacity="1" d="M22 22L20 20" stroke="#000" stroke-width="3.5"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                        </span>
                     </div>
+                </form>
 
-                    <h5 class="fw-normal mb-3 pb-3 text-center" style="letter-spacing: 1px;">Isi formulir</h5>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <!-- Form fields -->
-                    <div class="form-outline mb-4">
-                      <label class="form-label" for="nama"><i class="fas fa-user me-2"></i>Nama</label>
-                      <input type="text" id="nama" class="form-control form-control-lg" name="nama" required>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/bookinghome">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('bookinghome.riwayat') }}">Riwayat</a>
+                        </li>
+                    </ul>
+
+                    <div class="ms-4">
+                        <a href="/logout" class="btn btn-outline-light" data-mdb-ripple-init>Logout</a>
                     </div>
+                </div>
+            </div>
+        </nav>
 
-                    <div class="form-outline mb-4">
-                      <label class="form-label" for="alamat"><i class="fas fa-map-marker-alt me-2"></i>Alamat</label>
-                      <textarea id="alamat" class="form-control form-control-lg" name="alamat" required></textarea>
-                  </div>
 
-                    <div class="form-group mb-4">
-                      <label class="form-label" for="kategori_motor"><i class="fas fa-motorcycle me-2"></i>Kategori Motor</label>
-                      <select class="form-control" id="kategori_motor" name="kategori_motor" required>
-                          <option value="">Pilih Kategori Motor</option>
-                          <option value="Small bike <125cc">Small bike <125cc</option>
-                          <option value="Medium bike >150cc">Medium bike >150cc</option>
-                          <option value="Large bike >250cc">Large bike >250cc</option>
-                          <option value="Big bike >350cc">Big bike >350cc</option>
-                          <option value="Lux/Touring >1200cc">Lux/Touring >1200cc</option>
-                      </select>
+        <section class="hero-section">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-12">
+                        <div class="text-center mb-5 pb-2">
+                            <h1 class="text-white">Prime Motocare & Detailing</h1>
+                            <p class="text-white">Salon Motor Premium - Kota Padang.</p>
+
+                            <a href="#" class="btn btn-outline-light" data-mdb-ripple-init
+                                data-mdb-ripple-color="dark">Daftar Layanan</a>
+                        </div>
+
+                        <div class="owl-carousel owl-theme">
+                            <div class="owl-carousel-info-wrap item">
+                                <a href="#">
+                                    <img src="images/layanan1.jpeg" class="owl-carousel-image img-fluid"
+                                        alt="">
+                                    <div class="owl-carousel-info">
+                                        <h4 class="mb-2">Prime Signature Wash</h4>
+                                        <span class="badge">Free Mineral Water</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="owl-carousel-info-wrap item">
+                                <a href="#">
+                                    <img src="images/layanan2.jpeg"class="owl-carousel-image img-fluid"
+                                        alt="">
+                                    <div class="owl-carousel-info">
+                                        <h4 class="mb-2"> Prime Ultimate Wash</h4>
+                                        <span class="badge">Free Mineral Water</span>
+                                        <span class="badge">Helmet Compliment Care</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="owl-carousel-info-wrap item">
+                                <a href="#">
+                                    <img src="images/layanan3.jpeg"class="owl-carousel-image img-fluid"
+                                        alt="">
+                                    <div class="owl-carousel-info">
+                                        <h4 class="mb-2"> Prime Express Polish</h4>
+                                        <span class="badge">Free Mineral Water</span>
+                                        <span class="badge">Helmet Compliment Care</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="owl-carousel-info-wrap item">
+                                <a href="#">
+                                    <img src="images/layanan4.jpeg"class="owl-carousel-image img-fluid"
+                                        alt="">
+                                    <div class="owl-carousel-info">
+                                        <h4 class="mb-2"> Prime Body Detailing</h4>
+                                        <span class="badge">Free Mineral Water</span>
+                                        <span class="badge">Helmet Compliment Care</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="owl-carousel-info-wrap item">
+                                <a href="#">
+                                    <img src="images/layanan5.jpeg"class="owl-carousel-image img-fluid"
+                                        alt="">
+                                    <div class="owl-carousel-info">
+                                        <h4 class="mb-2"> Prime Body Coating (9H)</h4>
+                                        <span class="badge">Free Mineral Water</span>
+                                        <span class="badge">Helmet Compliment Care</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="owl-carousel-info-wrap item">
+                                <a href="#">
+                                    <img src="images/layanan6.jpeg"class="owl-carousel-image img-fluid"
+                                        alt="">
+                                    <div class="owl-carousel-info">
+                                        <h4 class="mb-2"> Prime Body Coating (10H)</h4>
+                                        <span class="badge">Free Mineral Water</span>
+                                        <span class="badge">Helmet Compliment Care</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="owl-carousel-info-wrap item">
+                                <a href="#">
+                                    <img src="images/layanan7.jpeg"class="owl-carousel-image img-fluid"
+                                        alt="">
+                                    <div class="owl-carousel-info">
+                                        <h4 class="mb-2"> Prime Full Package Detailing</h4>
+                                        <span class="badge">Free Mineral Water</span>
+                                        <span class="badge">Helmet Compliment Care</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="owl-carousel-info-wrap item">
+                                <a href="#">
+                                    <img src="images/layanan8.jpeg"class="owl-carousel-image img-fluid"
+                                        alt="">
+                                    <div class="owl-carousel-info">
+                                        <h4 class="mb-2"> Prime Full Package Coating (9H)</h4>
+                                        <span class="badge">Free Mineral Water</span>
+                                        <span class="badge">Helmet Compliment Care</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="owl-carousel-info-wrap item">
+                                <a href="#">
+                                    <img src="images/layanan9.jpeg"class="owl-carousel-image img-fluid"
+                                        alt="">
+                                    <div class="owl-carousel-info">
+                                        <h4 class="mb-2"> Prime Full Package Coating (10H)</h4>
+                                        <span class="badge">Free Mineral Water</span>
+                                        <span class="badge">Helmet Compliment Care</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="form-group mb-4">
-                      <label for="layanan"><i class="fas fa-list me-2"></i>Pilih Layanan</label>
-                      <select class="form-control form-control-lg" id="layanan" name="layanan" required>
-                          <option value="">Pilih Layanan</option>
-                          <option value="Layanan 1">Prime signature wash</option>
-                          <option value="Layanan 2">Prime ultimate wash</option>
-                          <option value="Layanan 3">Prime express polish</option>
-                          <option value="Layanan 4">Prime body detailing</option>
-                          <option value="Layanan 5">Prime body coating (9H)</option>
-                          <option value="Layanan 6">Prime ultimate -> body coating (10H)</option>
-                          <option value="Layanan 7">Prime full package -> Detailing, coating (9H), Ultimate coating (10H)</option>
-                      </select>
-                    </div>
-
-                    <div class="form-outline mb-4">
-                      <label class="form-label" for="tanggal"><i class="fas fa-calendar me-2"></i>Tanggal dan Jam Layanan</label>
-                      <input type="datetime-local" id="tanggal" class="form-control form-control-lg" name="tanggal" required>
-                    </div>
-
-                    <div class="pt-2 mb-4 text-center">
-                      <button class="btn btn-primary btn-lg" type="submit">Daftar</button>
-                    </div>
-                  </form>
-
-                  <div class="loading-overlay" id="loadingOverlay">
-                    <i class="fas fa-spinner fa-spin"></i> Tunggu sebentar...
-                  </div>
 
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
 
-<script>
-  document.getElementById('bookingForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent the default form submission
-    document.getElementById('loadingOverlay').style.display = 'flex'; // Show loading screen
-    setTimeout(function() {
-      document.getElementById('bookingForm').submit(); // Submit the form after a delay
-    }, 2000); // Adjust the delay as necessary
-  });
-</script>
+        <form action="{{ route('bookinghome.store') }}" method="POST">
+            @csrf
+            <section class="review-section bg-light py-5">
+                <div class="container">
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-lg-12 col-12">
+                            <div class="section-title-wrap text-center mb-5">
+                                <h2 class="section-title">Booking Layanan</h2>
+                                <p class="text-muted">Booking Layanan kami di bawah ini.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="mb-3">
+                                <label>Nama Pelanggan</label>
+                                <input type="text" name="nama"
+                                    class="form-control @error('nama') is-invalid @enderror"
+                                    value="{{ old('nama') }}" placeholder="Masukan nama lengkap">
+                                @error('nama')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="mb-3">
+                                <label>Pilih Layanan</label>
+                                <select name="layanan_id" class="form-control @error('layanan_id') is-invalid @enderror">
+                                    <option value="" selected>Pilih Layanan</option>
+                                    @foreach ($layanans as $data)
+                                        <option value="{{ $data->id ?? '-' }}">{{ $data->nama_layanan ?? '-' }}</option>
+                                    @endforeach
+                                </select>
+                                @error('layanan_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="mb-3">
+                                <label>Tanggal</label>
+                                <input type="date" name="tanggal"
+                                    class="form-control @error('tanggal') is-invalid @enderror"
+                                    value="{{ old('tanggal', \Carbon\Carbon::now()->format('Y-m-d')) }}">
+                                @error('tanggal')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="mb-3">
+                                <label>Jam Layanan</label>
+                                <input type="time" name="jam"
+                                    class="form-control @error('jam') is-invalid @enderror"
+                                    value="{{ old('jam', \Carbon\Carbon::now()->format('H:i')) }}">
+                                @error('jam')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="mb-4">
+                                <label>Keterangan (Optional)</label>
+                                <textarea name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" rows="5" placeholder="Masukan keterangan">{{ old('keterangan') }}</textarea>
+                                @error('keterangan')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Simpan Data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </form>
+
+    </main>
+
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-md-0 mb-lg-0">
+                    <h6 class="site-footer-title mb-3">Contact</h6>
+
+                    <p class="mb-2"><strong class="d-inline me-2">Phone:</strong> +62 812-6775-0525</p>
+
+                    <p>
+                        <strong class="d-inline me-2">Email:</strong>
+                        <a href="#">primemotocare@gmail.com</a>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12">
+                    <h6 class="site-footer-title mb-3">Social</h6>
+
+                    <ul class="social-icon">
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-instagram"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-facebook"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-whatsapp"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-tiktok"></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12">
+                    <h6 class="site-footer-title mb-3">Maps</h6>
+                    <section class="location-section">
+                        <div class="location-info">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.305919954598!2d100.3506886!3d-0.9182701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b91193b964e5%3A0x113a8a68e713f9df!2sPrime%20Motocare%20%26%20Detailing!5e0!3m2!1sid!2sid!4v1714452915038!5m2!1sid!2sid"
+                                allowfullscreen="" loading="lazy" height="250px" width="570px"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container pt-2">
+            <div class="row align-items-center">
+
+                <div class="col-lg-12 col-12">
+                    <p class="copyright-text mb-0">Copyright ©2024 Prime Motocare & Detailing </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script>
+        $(document).ready(function() {
+            @if (Session::has('success'))
+                toastr.success("{{ Session::get('success') }}");
+            @endif
+
+            @if (Session::has('error'))
+                toastr.error("{{ Session::get('error') }}");
+            @endif
+        });
+    </script>
 
 </body>
+
 </html>
