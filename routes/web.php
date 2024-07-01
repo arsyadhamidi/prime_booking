@@ -9,6 +9,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Setting\SettingController;
 use App\Http\Controllers\Admin\AdminLayananController;
+use App\Http\Controllers\Admin\AdminReviewController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Landing\LandingAboutController;
 use App\Http\Controllers\Landing\LandingBookingController;
@@ -65,6 +66,11 @@ Route::get('/verify-email', function () {
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
+
+    // Review
+    Route::get('/review', [LandingReviewController::class, 'index'])->name('review.index');
+    Route::post('/review/store', [LandingReviewController::class, 'store'])->name('review.store');
+
     Route::get('/bookinghome', [LandingBookingController::class, 'index'])->name('bookinghome.index');
     Route::get('/bookinghome/generatepdf/{id}', [LandingBookingController::class, 'generatepdf'])->name('bookinghome.generatepdf');
     Route::get('/bookinghome/riwayat', [LandingBookingController::class, 'riwayat'])->name('bookinghome.riwayat');
@@ -85,6 +91,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':Admin']], function () {
+
+        // Data Review
+        Route::get('/data-review', [AdminReviewController::class, 'index'])->name('data-review.index');
 
         // Data Booking
         Route::get('/data-booking', [AdminBookingController::class, 'index'])->name('data-booking.index');

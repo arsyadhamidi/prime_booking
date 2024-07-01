@@ -96,6 +96,14 @@
                         </a>
                     </li>
 
+                    {{-- Data Review --}}
+                    <li class="menu-item @yield('menuDataReview')">
+                        <a href="{{ route('data-review.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-star"></i>
+                            <div data-i18n="Analytics">Data Review</div>
+                        </a>
+                    </li>
+
                     {{-- User Registrasi --}}
                     <li class="menu-item @yield('menuUserRegistrasi')">
                         <a href="{{ route('data-user.index') }}" class="menu-link">

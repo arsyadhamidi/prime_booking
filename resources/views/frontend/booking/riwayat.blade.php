@@ -138,6 +138,9 @@ https://templatemo.com/tm-584-pod-talk
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('bookinghome.riwayat') }}">Riwayat</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('review.index') }}">Ulasan</a>
+                        </li>
                     </ul>
 
 
