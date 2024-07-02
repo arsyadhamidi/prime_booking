@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Landing;
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use App\Models\Layanan;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PDF;
@@ -13,9 +14,11 @@ class LandingBookingController extends Controller
 {
     public function index()
     {
-        $layanans = Layanan::latest()->get();
+        $reviews = Review::latest()->get();
+        $layanans = Layanan::latest()->paginate(5);
         return view('frontend.booking.booking', [
             'layanans' => $layanans,
+            'reviews' => $reviews,
         ]);
     }
 
@@ -36,6 +39,10 @@ class LandingBookingController extends Controller
         $validated['users_id'] = Auth::user()->id;
         $validated['keterangan'] = $request->keterangan ?? null;
         $validated['status'] = 'Proses';
+        $bookings = Booking::where('tanggal', $request->tanggal)->where('jam', $request->jam)->first();
+        if (!empty($bookings)) {
+            return back()->with('error','Mohon maaf, Booking pada hari dan jam ini sudah penuh, silahkan direschedule kembali');
+        }
         Booking::create($validated);
         return redirect('bookinghome/confirm')->with('success', 'Anda berhasil melakukan booking');
     }
@@ -80,8 +87,8 @@ class LandingBookingController extends Controller
     {
         $booking = Booking::where('id', $id)->first();
 
-    	$pdf = PDF::loadview('frontend.booking.export-pdf',['booking'=>$booking])->setPaper('A4', 'Potrait');
-    	// return $pdf->download('booking.pdf');
-    	return $pdf->stream('booking.pdf');
+        $pdf = PDF::loadview('frontend.booking.export-pdf', ['booking' => $booking])->setPaper('A4', 'Potrait');
+        // return $pdf->download('booking.pdf');
+        return $pdf->stream('booking.pdf');
     }
 }

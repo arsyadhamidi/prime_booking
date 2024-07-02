@@ -272,64 +272,53 @@ https://templatemo.com/tm-584-pod-talk
                     </div>
 
                     <div class="col-md-10 col-lg-8">
-                        <div class="review-block bg-white p-4 shadow rounded mb-4">
-                            <div class="profile-block float-left mr-3">
-                                <img src="images/profile/adhit.jpg" alt="Adhit" class="img-fluid rounded-circle" style="width: 60px; height: 60px;">
-                            </div>
-                            <div class="review-content">
-                                <h5 class="mb-1"><strong>Adhit</strong> - Boss Man</h5>
-                                <p class="text-muted small mb-2">Diposting pada 20 April 2024</p>
-                                <p>Puas dengan Layanan nya,Terima kasih...</p>
-                                <div class="review-rating">
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
+                        @foreach ($reviews as $review)
+                            <div class="review-block bg-white p-4 shadow rounded mb-4">
+                                <div class="profile-block float-left mr-3">
+                                    <img src="{{ asset('images/foto-profile.png') }}" alt="Adhit"
+                                        class="img-fluid rounded-circle" style="width: 60px; height: 60px;">
                                 </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-
-
-                         <div class="review-block bg-white p-4 shadow rounded mb-4">
-                            <div class="profile-block float-left mr-3">
-                                <img src="images/profile/man1.jpg" alt="Harald" class="img-fluid rounded-circle" style="width: 60px; height: 60px;">
-                            </div>
-                            <div class="review-content">
-                                <h5 class="mb-1"><strong>Harald</strong> - Youtuber</h5>
-                                <p class="text-muted small mb-2">Diposting pada 30 April 2024</p>
-                                <p>Puas dengan Layanan nya,Terima kasih...</p>
-                                <div class="review-rating">
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
+                                <div class="review-content mt-4">
+                                    <h5 class="mb-1"><strong>{{ $review->nama ?? '-' }}</strong></h5>
+                                    <p class="text-muted small mb-2">{{ $review->created_at ?? '-' }}</p>
+                                    <p>{{ $review->ulasan ?? '-' }}</p>
+                                    @if ($review->rating == '5')
+                                        <div class="review-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                        </div>
+                                    @elseif($review->rating == '4')
+                                        <div class="review-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                        </div>
+                                    @elseif($review->rating == '3')
+                                        <div class="review-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                        </div>
+                                    @elseif($review->rating == '2')
+                                        <div class="review-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                        </div>
+                                    @elseif($review->rating == '1')
+                                        <div class="review-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                        </div>
+                                    @else
+                                        Tidak Tersedia
+                                    @endif
                                 </div>
+                                <div class="clearfix"></div>
                             </div>
-                            <div class="clearfix"></div>
-                        </div>
-
-                        <div class="review-block bg-white p-4 shadow rounded">
-                            <div class="profile-block float-left mr-3">
-                                <img src="images/profile/man.jpg" alt="William" class="img-fluid rounded-circle" style="width: 60px; height: 60px;">
-                            </div>
-                            <div class="review-content">
-                                <h5 class="mb-1"><strong>William</strong> - Vlogger</h5>
-                                <p class="text-muted small mb-2">Diposting pada 25 April 2024</p>
-                                <p>Rancak Bana detailing di siko, top lah.</p>
-                                <div class="review-rating">
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </div>

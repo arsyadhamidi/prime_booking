@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('layanan_id');
             $table->string('nama');
             $table->date('tanggal');
-            $table->time('jam');
+            $table->string('jam');
             $table->string('status');
             $table->text('keterangan')->nullable();
             $table->timestamps();

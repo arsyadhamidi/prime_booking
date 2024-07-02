@@ -88,6 +88,11 @@ https://templatemo.com/tm-584-pod-talk
     .text-white {
         color: rgb(255, 255, 255);
     }
+
+    .active {
+        background-color: blue !important;
+        color: white !important;
+    }
 </style>
 
 <body>
@@ -307,10 +312,12 @@ https://templatemo.com/tm-584-pod-talk
                         <div class="col-lg">
                             <div class="mb-3">
                                 <label>Pilih Layanan</label>
-                                <select name="layanan_id" class="form-control @error('layanan_id') is-invalid @enderror">
+                                <select name="layanan_id"
+                                    class="form-control @error('layanan_id') is-invalid @enderror">
                                     <option value="" selected>Pilih Layanan</option>
                                     @foreach ($layanans as $data)
-                                        <option value="{{ $data->id ?? '-' }}">{{ $data->nama_layanan ?? '-' }}</option>
+                                        <option value="{{ $data->id ?? '-' }}">{{ $data->nama_layanan ?? '-' }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 @error('layanan_id')
@@ -335,25 +342,59 @@ https://templatemo.com/tm-584-pod-talk
                                 @enderror
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-lg">
                             <div class="mb-3">
-                                <label>Jam Layanan</label>
-                                <input type="time" name="jam"
-                                    class="form-control @error('jam') is-invalid @enderror"
-                                    value="{{ old('jam', \Carbon\Carbon::now()->format('H:i')) }}">
-                                @error('jam')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
+                                <label>Jam Booking</label>
+                                <div class="row mt-3">
+                                    <div class="col-lg">
+                                        <button type="button" class="btn btn-outline-primary">09.00</button>
                                     </div>
-                                @enderror
+                                    <div class="col-lg">
+                                        <button type="button" class="btn btn-outline-primary">10.00</button>
+                                    </div>
+                                    <div class="col-lg">
+                                        <button type="button" class="btn btn-outline-primary">11.00</button>
+                                    </div>
+                                    <div class="col-lg">
+                                        <button type="button" class="btn btn-outline-primary">12.00</button>
+                                    </div>
+                                    <div class="col-lg">
+                                        <button type="button" class="btn btn-outline-primary">13.00</button>
+                                    </div>
+                                    <div class="col-lg">
+                                        <button type="button" class="btn btn-outline-primary">14.00</button>
+                                    </div>
+                                    <div class="col-lg">
+                                        <button type="button" class="btn btn-outline-primary">15.00</button>
+                                    </div>
+                                    <div class="col-lg">
+                                        <button type="button" class="btn btn-outline-primary">16.00</button>
+                                    </div>
+                                    <div class="col-lg">
+                                        <button type="button" class="btn btn-outline-primary">17.00</button>
+                                    </div>
+                                    <div class="col-lg">
+                                        <button type="button" class="btn btn-outline-primary">18.00</button>
+                                    </div>
+                                    <div class="col-lg">
+                                        <button type="button" class="btn btn-outline-primary">19.00</button>
+                                    </div>
+                                    <div class="col-lg">
+                                        <button type="button" class="btn btn-outline-primary">20.00</button>
+                                    </div>
+                                </div>
                             </div>
+                            <input type="text" name="jam" class="form-control" id="inputJam" hidden>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg">
                             <div class="mb-4">
                                 <label>Keterangan (Optional)</label>
-                                <textarea name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" rows="5" placeholder="Masukan keterangan">{{ old('keterangan') }}</textarea>
+                                <textarea name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" rows="5"
+                                    placeholder="Masukan keterangan">{{ old('keterangan') }}</textarea>
                                 @error('keterangan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -370,6 +411,69 @@ https://templatemo.com/tm-584-pod-talk
                 </div>
             </section>
         </form>
+
+        <section class="review-section bg-light py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 col-12">
+                        <div class="section-title-wrap text-center mb-5">
+                            <h2 class="section-title">Review Pelanggan</h2>
+                            <p class="text-muted">Apa kata mereka tentang layanan kami</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-10 col-lg-8">
+                        @foreach ($reviews as $review)
+                            <div class="review-block bg-white p-4 shadow rounded mb-4">
+                                <div class="profile-block float-left mr-3">
+                                    <img src="{{ asset('images/foto-profile.png') }}" alt="Adhit"
+                                        class="img-fluid rounded-circle" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="review-content mt-4">
+                                    <h5 class="mb-1"><strong>{{ $review->nama ?? '-' }}</strong></h5>
+                                    <p class="text-muted small mb-2">{{ $review->created_at ?? '-' }}</p>
+                                    <p>{{ $review->ulasan ?? '-' }}</p>
+                                    @if ($review->rating == '5')
+                                        <div class="review-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                        </div>
+                                    @elseif($review->rating == '4')
+                                        <div class="review-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                        </div>
+                                    @elseif($review->rating == '3')
+                                        <div class="review-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                        </div>
+                                    @elseif($review->rating == '2')
+                                        <div class="review-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                        </div>
+                                    @elseif($review->rating == '1')
+                                        <div class="review-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                        </div>
+                                    @else
+                                        Tidak Tersedia
+                                    @endif
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
@@ -456,7 +560,29 @@ https://templatemo.com/tm-584-pod-talk
             @endif
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.btn-outline-primary');
+            const inputJam = document.getElementById('inputJam');
 
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Set the input value to the button text
+                    inputJam.value = this.textContent;
+
+                    // Remove the active class from all buttons
+                    buttons.forEach(btn => {
+                        btn.classList.remove('btn-primary');
+                        btn.classList.add('btn-outline-primary');
+                    });
+
+                    // Add the active class to the clicked button
+                    this.classList.remove('btn-outline-primary');
+                    this.classList.add('btn-primary');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
