@@ -124,11 +124,8 @@ https://templatemo.com/tm-584-pod-talk
                         <li class="nav-item">
                             <a class="nav-link" href="/about">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/bookinghome">Booking</a>
-                        </li>
                         <li>
-                            <a class="nav-link" href="/review">Review</a>
+                            <a class="nav-link" href="/">Review</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/contact">Contact</a>

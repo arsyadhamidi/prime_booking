@@ -146,6 +146,9 @@ https://templatemo.com/tm-584-pod-talk
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('review.index') }}">Ulasan</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">Profile</a>
+                        </li>
                     </ul>
 
                     <div class="ms-4">
@@ -309,16 +312,34 @@ https://templatemo.com/tm-584-pod-talk
                                 @enderror
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="mb-3">
+                                <label>Pilih Kategori</label>
+                                <select name="kategori_id"
+                                    class="form-control @error('kategori_id') is-invalid @enderror"
+                                    id="selectedKategori">
+                                    <option value="" selected>Pilih Kategori</option>
+                                    @foreach ($kategoris as $data)
+                                        <option value="{{ $data->id ?? '-' }}">{{ $data->nama ?? '-' }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('kategori_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-lg">
                             <div class="mb-3">
                                 <label>Pilih Layanan</label>
                                 <select name="layanan_id"
-                                    class="form-control @error('layanan_id') is-invalid @enderror">
+                                    class="form-control @error('layanan_id') is-invalid @enderror"
+                                    id="selectedLayanan">
                                     <option value="" selected>Pilih Layanan</option>
-                                    @foreach ($layanans as $data)
-                                        <option value="{{ $data->id ?? '-' }}">{{ $data->nama_layanan ?? '-' }}
-                                        </option>
-                                    @endforeach
                                 </select>
                                 @error('layanan_id')
                                     <div class="invalid-feedback">
@@ -583,6 +604,33 @@ https://templatemo.com/tm-584-pod-talk
             });
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            $('#selectedKategori').change(function() {
+                var kategori_id = $(this).val();
+                if (kategori_id) {
+                    $.ajax({
+                        url: '/get-layanan/' + kategori_id,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            $('#selectedLayanan').empty();
+                            $('#selectedLayanan').append(
+                                '<option value="" selected>Pilih Layanan</option>');
+                            $.each(data, function(key, value) {
+                                $('#selectedLayanan').append('<option value="' + value
+                                    .id + '">' + value.nama_layanan + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#selectedLayanan').empty();
+                    $('#selectedLayanan').append('<option value="" selected>Pilih Layanan</option>');
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>

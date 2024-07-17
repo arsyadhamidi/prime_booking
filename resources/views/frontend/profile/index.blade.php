@@ -19,17 +19,17 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Sono:wght@200;300;400;500;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="css/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-    <link href="{{ asset('css/templatemo-pod-talk.css') }}" rel="stylesheet">
+    <link href="css/templatemo-pod-talk.css" rel="stylesheet">
 
     <!--
 
@@ -87,6 +87,11 @@ https://templatemo.com/tm-584-pod-talk
 
     .text-white {
         color: rgb(255, 255, 255);
+    }
+
+    .active {
+        background-color: blue !important;
+        color: white !important;
     }
 </style>
 
@@ -170,8 +175,8 @@ https://templatemo.com/tm-584-pod-talk
                         <div class="owl-carousel owl-theme">
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan1.jpeg') }}"
-                                        class="owl-carousel-image img-fluid" alt="">
+                                    <img src="images/layanan1.jpeg" class="owl-carousel-image img-fluid"
+                                        alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2">Prime Signature Wash</h4>
                                         <span class="badge">Free Mineral Water</span>
@@ -181,7 +186,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan2.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan2.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Ultimate Wash</h4>
@@ -193,7 +198,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan3.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan3.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Express Polish</h4>
@@ -205,7 +210,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan4.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan4.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Body Detailing</h4>
@@ -217,7 +222,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan5.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan5.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Body Coating (9H)</h4>
@@ -229,7 +234,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan6.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan6.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Body Coating (10H)</h4>
@@ -241,7 +246,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan7.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan7.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Full Package Detailing</h4>
@@ -253,7 +258,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan8.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan8.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Full Package Coating (9H)</h4>
@@ -265,7 +270,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan9.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan9.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Full Package Coating (10H)</h4>
@@ -281,106 +286,81 @@ https://templatemo.com/tm-584-pod-talk
             </div>
         </section>
 
-        <h1 class="text-center mt-5">Detail Booking</h1>
-        <p class="text-center">Silahkan konfirmasi tindak lanjut booking dengan waktu <span id="countdown">60</span>
-            detik.</p>
 
-        <div class="container my-5">
-            <div class="row py-5">
-                <div class="col-lg">
-                    <table class="table table-bordered table-striped">
-                        <thead>
+        <div class="review-section bg-light py-5">
+            <div class="container">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-12 col-12">
+                        <div class="section-title-wrap text-center mb-5">
+                            <h2 class="section-title">Profile</h2>
+                            <p class="text-muted">Profile Pelanggan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-5">
+                    <div class="col-lg-2">
+                        @if ($pelanggans->foto_profile)
+                            <img src="{{ asset('storage/' . $pelanggans->foto_profile) }}" class="img-fluid"
+                                style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;" alt="">
+                        @else
+                            <img src="{{ asset('images/foto-profile.png') }}" class="img-fluid" width="150px" alt="">
+                        @endif
+                    </div>
+                    <div class="col-lg">
+                        <h1>{{ $pelanggans->nama ?? '-' }}</h1>
+                        <h5>Pelanggan</h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg">
+                        <table class="table table-bordered">
                             <tr>
-                                <th style="width: 5%; text-align:center">#</th>
-                                <th>Biodata</th>
-                                <th colspan="2">Keterangan</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Nama Lengkap</td>
-                                <td>:</td>
-                                <td>{{ $booking->nama ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Email Address</td>
-                                <td>:</td>
-                                <td>{{ $booking->users->email ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Kategori Layanan</td>
-                                <td>:</td>
-                                <td>{{ $booking->kategori->nama ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Layanan</td>
-                                <td>:</td>
-                                <td>{{ $booking->layanan->nama_layanan ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Harga Layanan</td>
-                                <td>:</td>
-                                <td>Rp. {{ $booking->layanan->harga ?? '-' }},-</td>
+                                <td style="width: 4%">1</td>
+                                <td style="width: 30%">Nama Lengkap</td>
+                                <td style="width: 4%">:</td>
+                                <td>{{ $pelanggans->nama ?? '-' }}</td>
                             </tr>
                             <tr>
-                                <td>6</td>
-                                <td>Tanggal</td>
-                                <td>:</td>
-                                <td>{{ $booking->tanggal ?? '-' }}</td>
+                                <td style="width: 4%">2</td>
+                                <td style="width: 30%">Email Address</td>
+                                <td style="width: 4%">:</td>
+                                <td>{{ $pelanggans->email ?? '-' }}</td>
                             </tr>
                             <tr>
-                                <td>7</td>
-                                <td>Jam</td>
-                                <td>:</td>
-                                <td>{{ $booking->jam ?? '-' }}</td>
+                                <td style="width: 4%">3</td>
+                                <td style="width: 30%">Status</td>
+                                <td style="width: 4%">:</td>
+                                <td>Pelanggan</td>
                             </tr>
                             <tr>
-                                <td>8</td>
-                                <td>Status</td>
-                                <td>:</td>
-                                <td>
-                                    @if ($booking->status == 'Proses')
-                                        <span class="badge badge-primary">{{ $booking->status ?? '-' }}</span>
-                                    @elseif($booking->status == 'Setuju')
-                                        <span class="badge badge-success">{{ $booking->status ?? '-' }}</span>
-                                    @elseif($booking->status == 'Batal')
-                                        <span class="badge badge-danger">{{ $booking->status ?? '-' }}</span>
-                                    @else
-                                        <span class="badge badge-dark">{{ $booking->status ?? '-' }}</span>
-                                    @endif
-                                </td>
+                                <td style="width: 4%">4</td>
+                                <td style="width: 30%">Telepon</td>
+                                <td style="width: 4%">:</td>
+                                <td>{{ $pelanggans->telp ?? '-' }}</td>
                             </tr>
                             <tr>
-                                <td>9</td>
-                                <td>Aksi</td>
-                                <td></td>
-                                <td class="d-flex flex-wrap">
-                                    <form action="{{ route('bookinghome.updatesetuju', $booking->id) }}"
-                                        method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-success">
-                                            Setuju
-                                        </button>
-                                    </form>
-                                    <form action="{{ route('bookinghome.updatebatal', $booking->id) }}"
-                                        method="POST" class="mx-2">
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger">
-                                            Batal
-                                        </button>
-                                    </form>
-                                </td>
+                                <td style="width: 4%">5</td>
+                                <td style="width: 30%">Alamat</td>
+                                <td style="width: 4%">:</td>
+                                <td>{{ $pelanggans->alamat ?? '-' }}</td>
                             </tr>
-                        </tbody>
-                    </table>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg">
+                        <a href="{{ route('profile.edit', $pelanggans->id) }}" class="btn btn-primary">
+                            Edit Profile
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+
+
 
     </main>
 
@@ -450,10 +430,10 @@ https://templatemo.com/tm-584-pod-talk
 
 
     <!-- JAVASCRIPT FILES -->
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/custom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <script>
@@ -466,27 +446,6 @@ https://templatemo.com/tm-584-pod-talk
                 toastr.error("{{ Session::get('error') }}");
             @endif
         });
-    </script>
-    <script>
-        let timer;
-        let countdown = 60; // 60 seconds
-
-        function startCountdown() {
-            timer = setInterval(function() {
-                countdown--;
-                document.getElementById('countdown').innerText = countdown;
-
-                if (countdown <= 0) {
-                    clearInterval(timer);
-                    alert('Waktu sudah habis. Anda tidak dapat membayar lagi');
-                    window.location.href = '/dashboard'; // Redirect to home or another page
-                }
-            }, 1000);
-        }
-
-        window.onload = function() {
-            startCountdown();
-        }
     </script>
 
 </body>

@@ -3,6 +3,11 @@
 * File include item demo only specific css only
 ******************************************************************************/
 /* Add margin to the search box */
+#myTable{
+    border: 1px solid rgb(231, 231, 231);
+    border-collapse: collapse;
+  }
+  
 .dataTables_wrapper .dataTables_filter {
     margin-bottom: 20px; /* Adjust this value as needed */
   }
@@ -10,11 +15,6 @@
   /* Add margin to the table */
   .dataTables_wrapper .dataTables_scroll {
     margin-top: 20px; /* Adjust this value as needed */
-  }
-
-  #myTable{
-    border: 1px solid rgb(231, 231, 231);
-    border-collapse: collapse;
   }
 
   /* Soft border for the search input */

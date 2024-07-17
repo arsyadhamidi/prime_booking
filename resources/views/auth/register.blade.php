@@ -70,7 +70,7 @@
                         <div class="card-group">
                             <div class="card p-4">
                                 <div class="card-body">
-                                    <form method="POST" action="/register">
+                                    <form method="POST" action="/register" enctype="multipart/form-data">
                                         @csrf
                                         <h1>Register User</h1>
                                         <p class="text-muted">Create your account</p>
@@ -113,10 +113,30 @@
                                                 </div>
                                             @enderror
                                         </div>
+                                        <div class="input-group
+                                                mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                                            </div>
+                                            <input type="number"
+                                                class="form-control @error('telp') is-invalid @enderror"
+                                                placeholder="Telepon" name="telp">
+                                            @error('telp')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
                                         <div class="input-group mb-4">
                                             <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" rows="5"
                                                 placeholder="Alamat Domisili">{{ old('alamat') }}</textarea>
                                             @error('alamat')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="input-group mb-4">
+                                            <input type="file" name="foto_profile" class="form-control @error('foto_profile') is-invalid @enderror">
+                                            @error('foto_profile')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>

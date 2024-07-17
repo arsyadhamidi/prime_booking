@@ -20,6 +20,20 @@
                         <div class="row">
                             <div class="col-lg">
                                 <div class="mb-3">
+                                    <label>Kategori</label>
+                                    <select name="kategori_id" class="form-control @error('kategori_id') is-invalid @enderror">
+                                        <option value="" selected>Pilih Kategori</option>
+                                        @foreach ($kategoris as $data)
+                                            <option value="{{ $data->id }}" {{ old('kategori_id') == $data->id ? 'selected' : '' }}>{{ $data->nama ?? '-' }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('kategori_id')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
                                     <label>Nama Layanan</label>
                                     <textarea name="nama_layanan" class="form-control @error('nama_layanan') is-invalid @enderror" rows="5"
                                         placeholder="Masukan nama layanan">{{ old('nama_layanan') }}</textarea>

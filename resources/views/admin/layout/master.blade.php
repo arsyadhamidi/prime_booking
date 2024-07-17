@@ -49,6 +49,14 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Daterangepicker CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <!-- Moment.js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <!-- Daterangepicker JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 </head>
 
 <body>
@@ -80,6 +88,14 @@
                         </a>
                     </li>
 
+                    {{-- Data Kategori --}}
+                    <li class="menu-item @yield('menuDataKategori')">
+                        <a href="{{ route('data-kategori.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-grid"></i>
+                            <div data-i18n="Analytics">Data Kategori</div>
+                        </a>
+                    </li>
+
                     {{-- Data Layanan --}}
                     <li class="menu-item @yield('menuDataLayanan')">
                         <a href="{{ route('data-layanan.index') }}" class="menu-link">
@@ -101,6 +117,14 @@
                         <a href="{{ route('data-review.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-star"></i>
                             <div data-i18n="Analytics">Data Review</div>
+                        </a>
+                    </li>
+
+                    {{-- Data Pelanggan --}}
+                    <li class="menu-item @yield('menuDataPelanggan')">
+                        <a href="{{ route('data-pelanggan.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user-check"></i>
+                            <div data-i18n="Analytics">Data Pelanggan</div>
                         </a>
                     </li>
 

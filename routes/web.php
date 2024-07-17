@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminBookingController;
+use App\Http\Controllers\Admin\AdminKategoriController;
 use Illuminate\Http\Request;
 use App\Http\Middleware\CekLevel;
 use Illuminate\Support\Facades\Route;
@@ -9,6 +10,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Setting\SettingController;
 use App\Http\Controllers\Admin\AdminLayananController;
+use App\Http\Controllers\Admin\AdminPelangganController;
 use App\Http\Controllers\Admin\AdminReviewController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Landing\LandingAboutController;
@@ -16,8 +18,10 @@ use App\Http\Controllers\Landing\LandingBookingController;
 use App\Http\Controllers\Landing\LandingContactController;
 use App\Http\Controllers\Landing\LandingController;
 use App\Http\Controllers\Landing\LandingDetailController;
+use App\Http\Controllers\Landing\LandingProfileController;
 use App\Http\Controllers\Landing\LandingReviewController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +71,11 @@ Route::get('/verify-email', function () {
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
 
+    // Profile
+    Route::get('/profile', [LandingProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit/{id}', [LandingProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/update/{id}', [LandingProfileController::class, 'update'])->name('profile.update');
+
     // Review
     Route::get('/review', [LandingReviewController::class, 'index'])->name('review.index');
     Route::post('/review/store', [LandingReviewController::class, 'store'])->name('review.store');
@@ -80,6 +89,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/bookinghome/updatebatal/{id}', [LandingBookingController::class, 'updatebatal'])->name('bookinghome.updatebatal');
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/get-layanan/{kategori_id}', [DashboardController::class, 'getLayanan'])->name('get.layanan');
+
+    Route::post('/dashboard/generateexcel', [DashboardController::class, 'generateexcel'])->name('dashboard.generateexcel');
 
     // Setting
     Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
@@ -91,6 +103,17 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':Admin']], function () {
+
+        // Data Pelanggan
+        Route::get('/data-pelanggan', [AdminPelangganController::class, 'index'])->name('data-pelanggan.index');
+
+        // Data Kategori
+        Route::get('/data-kategori', [AdminKategoriController::class, 'index'])->name('data-kategori.index');
+        Route::get('/data-kategori/create', [AdminKategoriController::class, 'create'])->name('data-kategori.create');
+        Route::get('/data-kategori/edit/{id}', [AdminKategoriController::class, 'edit'])->name('data-kategori.edit');
+        Route::post('/data-kategori/store', [AdminKategoriController::class, 'store'])->name('data-kategori.store');
+        Route::post('/data-kategori/update/{id}', [AdminKategoriController::class, 'update'])->name('data-kategori.update');
+        Route::post('/data-kategori/destroy/{id}', [AdminKategoriController::class, 'destroy'])->name('data-kategori.destroy');
 
         // Data Review
         Route::get('/data-review', [AdminReviewController::class, 'index'])->name('data-review.index');

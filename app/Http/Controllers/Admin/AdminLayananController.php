@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Layanan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Kategori;
 
 class AdminLayananController extends Controller
 {
@@ -18,12 +19,16 @@ class AdminLayananController extends Controller
 
     public function create()
     {
-        return view('admin.layanan.create');
+        $kategoris = Kategori::latest()->get();
+        return view('admin.layanan.create', [
+            'kategoris' => $kategoris,
+        ]);
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'kategori_id' => 'required',
             'nama_layanan' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required'
@@ -40,14 +45,17 @@ class AdminLayananController extends Controller
 
     public function edit($id)
     {
+        $kategoris = Kategori::latest()->get();
         return view('admin.layanan.edit', [
             'layanans' => Layanan::where('id', $id)->first(),
+            'kategoris' => $kategoris,
         ]);
     }
 
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
+            'kategori_id' => 'required',
             'nama_layanan' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required'

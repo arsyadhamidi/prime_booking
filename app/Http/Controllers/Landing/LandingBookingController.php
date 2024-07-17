@@ -26,11 +26,13 @@ class LandingBookingController extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required',
+            'kategori_id' => 'required',
             'layanan_id' => 'required',
             'tanggal' => 'required',
             'jam' => 'required',
         ], [
             'nama.required' => 'Nama Pelanggan wajib diisi',
+            'kategori_id.required' => 'Kategori Layanan wajib diisi',
             'layanan_id.required' => 'Jenis Layanan wajib diisi',
             'tanggal.required' => 'Tanggal Layanan wajib diisi',
             'jam.required' => 'Jam Layanan wajib diisi'

@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bookings', function (Blueprint $table) {
+        Schema::create('pelanggans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id');
-            $table->foreignId('kategori_id');
-            $table->foreignId('layanan_id');
             $table->string('nama');
-            $table->date('tanggal');
-            $table->string('jam');
-            $table->string('status');
-            $table->text('keterangan')->nullable();
+            $table->string('email');
+            $table->string('telp');
+            $table->text('alamat');
+            $table->string('foto_profile')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bookings');
+        Schema::dropIfExists('pelanggans');
     }
 };

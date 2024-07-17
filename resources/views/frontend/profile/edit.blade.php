@@ -88,6 +88,11 @@ https://templatemo.com/tm-584-pod-talk
     .text-white {
         color: rgb(255, 255, 255);
     }
+
+    .active {
+        background-color: blue !important;
+        color: white !important;
+    }
 </style>
 
 <body>
@@ -170,8 +175,8 @@ https://templatemo.com/tm-584-pod-talk
                         <div class="owl-carousel owl-theme">
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan1.jpeg') }}"
-                                        class="owl-carousel-image img-fluid" alt="">
+                                    <img src="images/layanan1.jpeg" class="owl-carousel-image img-fluid"
+                                        alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2">Prime Signature Wash</h4>
                                         <span class="badge">Free Mineral Water</span>
@@ -181,7 +186,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan2.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan2.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Ultimate Wash</h4>
@@ -193,7 +198,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan3.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan3.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Express Polish</h4>
@@ -205,7 +210,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan4.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan4.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Body Detailing</h4>
@@ -217,7 +222,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan5.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan5.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Body Coating (9H)</h4>
@@ -229,7 +234,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan6.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan6.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Body Coating (10H)</h4>
@@ -241,7 +246,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan7.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan7.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Full Package Detailing</h4>
@@ -253,7 +258,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan8.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan8.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Full Package Coating (9H)</h4>
@@ -265,7 +270,7 @@ https://templatemo.com/tm-584-pod-talk
 
                             <div class="owl-carousel-info-wrap item">
                                 <a href="#">
-                                    <img src="{{ asset('images/layanan9.jpeg') }}"class="owl-carousel-image img-fluid"
+                                    <img src="images/layanan9.jpeg"class="owl-carousel-image img-fluid"
                                         alt="">
                                     <div class="owl-carousel-info">
                                         <h4 class="mb-2"> Prime Full Package Coating (10H)</h4>
@@ -281,106 +286,106 @@ https://templatemo.com/tm-584-pod-talk
             </div>
         </section>
 
-        <h1 class="text-center mt-5">Detail Booking</h1>
-        <p class="text-center">Silahkan konfirmasi tindak lanjut booking dengan waktu <span id="countdown">60</span>
-            detik.</p>
 
-        <div class="container my-5">
-            <div class="row py-5">
-                <div class="col-lg">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th style="width: 5%; text-align:center">#</th>
-                                <th>Biodata</th>
-                                <th colspan="2">Keterangan</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Nama Lengkap</td>
-                                <td>:</td>
-                                <td>{{ $booking->nama ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Email Address</td>
-                                <td>:</td>
-                                <td>{{ $booking->users->email ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Kategori Layanan</td>
-                                <td>:</td>
-                                <td>{{ $booking->kategori->nama ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Layanan</td>
-                                <td>:</td>
-                                <td>{{ $booking->layanan->nama_layanan ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Harga Layanan</td>
-                                <td>:</td>
-                                <td>Rp. {{ $booking->layanan->harga ?? '-' }},-</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Tanggal</td>
-                                <td>:</td>
-                                <td>{{ $booking->tanggal ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Jam</td>
-                                <td>:</td>
-                                <td>{{ $booking->jam ?? '-' }}</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>Status</td>
-                                <td>:</td>
-                                <td>
-                                    @if ($booking->status == 'Proses')
-                                        <span class="badge badge-primary">{{ $booking->status ?? '-' }}</span>
-                                    @elseif($booking->status == 'Setuju')
-                                        <span class="badge badge-success">{{ $booking->status ?? '-' }}</span>
-                                    @elseif($booking->status == 'Batal')
-                                        <span class="badge badge-danger">{{ $booking->status ?? '-' }}</span>
-                                    @else
-                                        <span class="badge badge-dark">{{ $booking->status ?? '-' }}</span>
-                                    @endif
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>Aksi</td>
-                                <td></td>
-                                <td class="d-flex flex-wrap">
-                                    <form action="{{ route('bookinghome.updatesetuju', $booking->id) }}"
-                                        method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-success">
-                                            Setuju
-                                        </button>
-                                    </form>
-                                    <form action="{{ route('bookinghome.updatebatal', $booking->id) }}"
-                                        method="POST" class="mx-2">
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger">
-                                            Batal
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <div class="review-section bg-light py-5">
+            <div class="container">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-12 col-12">
+                        <div class="section-title-wrap text-center mb-5">
+                            <h2 class="section-title">Profile</h2>
+                            <p class="text-muted">Profile Pelanggan.</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="row mb-5">
+                    <div class="col-lg-2">
+                        @if ($pelanggans->foto_profile)
+                            <img src="{{ asset('storage/' . $pelanggans->foto_profile) }}" class="img-fluid"
+                                style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;"
+                                alt="">
+                        @else
+                            <img src="{{ asset('images/foto-profile.png') }}" class="img-fluid" width="150px"
+                                alt="">
+                        @endif
+                    </div>
+                    <div class="col-lg">
+                        <h1>{{ $pelanggans->nama ?? '-' }}</h1>
+                        <h5>Pelanggan</h5>
+                    </div>
+                </div>
+
+                <form action="{{ route('profile.update', $pelanggans->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="mb-3">
+                                <label>Nama Pelanggan</label>
+                                <input type="text" name="nama"
+                                    class="form-control @error('nama') is-invalid @enderror"
+                                    value="{{ old('nama', $pelanggans->nama ?? '-') }}"
+                                    placeholder="Masukan nama pelanggan">
+                                @error('nama')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label>Email Pelanggan</label>
+                                <input type="email" name="email"
+                                    class="form-control @error('email') is-invalid @enderror"
+                                    value="{{ old('email', $pelanggans->email ?? '-') }}"
+                                    placeholder="Masukan email pelanggan">
+                                @error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label>Telepon</label>
+                                <input type="number" name="telp"
+                                    class="form-control @error('telp') is-invalid @enderror"
+                                    value="{{ old('telp', $pelanggans->telp ?? '-') }}"
+                                    placeholder="Masukan telepon pelanggan">
+                                @error('telp')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label>Alamat</label>
+                                <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" rows="10"
+                                    placeholder="Masukan alamat domisili">{{ old('alamat', $pelanggans->alamat ?? '-') }}</textarea>
+                                @error('alamat')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label>Foto Profile</label>
+                                <input type="file" name="foto_profile"
+                                    class="form-control @error('foto_profile') is-invalid @enderror">
+                                @error('foto_profile')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">
+                        Simpan Data
+                    </button>
+                </form>
             </div>
         </div>
+
+
 
     </main>
 
@@ -449,7 +454,6 @@ https://templatemo.com/tm-584-pod-talk
     </footer>
 
 
-    <!-- JAVASCRIPT FILES -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
@@ -468,25 +472,15 @@ https://templatemo.com/tm-584-pod-talk
         });
     </script>
     <script>
-        let timer;
-        let countdown = 60; // 60 seconds
+        $(document).ready(function() {
+            @if (Session::has('success'))
+                toastr.success("{{ Session::get('success') }}");
+            @endif
 
-        function startCountdown() {
-            timer = setInterval(function() {
-                countdown--;
-                document.getElementById('countdown').innerText = countdown;
-
-                if (countdown <= 0) {
-                    clearInterval(timer);
-                    alert('Waktu sudah habis. Anda tidak dapat membayar lagi');
-                    window.location.href = '/dashboard'; // Redirect to home or another page
-                }
-            }, 1000);
-        }
-
-        window.onload = function() {
-            startCountdown();
-        }
+            @if (Session::has('error'))
+                toastr.error("{{ Session::get('error') }}");
+            @endif
+        });
     </script>
 
 </body>

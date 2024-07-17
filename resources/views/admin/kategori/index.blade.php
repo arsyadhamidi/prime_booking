@@ -1,13 +1,13 @@
 @extends('admin.layout.master')
-@section('menuDataLayanan', 'active')
+@section('menuDataKategori', 'active')
 @section('content')
     <div class="row">
         <div class="col-lg">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('data-layanan.create') }}" class="btn btn-primary">
+                    <a href="{{ route('data-kategori.create') }}" class="btn btn-primary">
                         <i class="bx bx-plus"></i>
-                        Tambahkan Data Layanan
+                        Tambahkan Data Kategori
                     </a>
                 </div>
                 <div class="card-body table-responsive">
@@ -16,25 +16,19 @@
                             <tr>
                                 <th style="width: 5%; text-align:center">No.</th>
                                 <th style="text-align:center">Kategori</th>
-                                <th style="text-align:center">Layanan</th>
-                                <th style="text-align:center">Harga</th>
-                                <th style="text-align:center">Deskripsi</th>
                                 <th style="text-align:center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($layanans as $data)
+                            @foreach ($kategoris as $data)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $data->kategori->nama ?? '-' }}</td>
-                                    <td>{{ $data->nama_layanan ?? '-' }}</td>
-                                    <td>{{ $data->harga ?? '-' }}</td>
-                                    <td>{{ $data->deskripsi ?? '-' }}</td>
+                                    <td>{{ $data->nama ?? '-' }}</td>
                                     <td>
-                                        <form action="{{ route('data-layanan.destroy', $data->id) }}" class="d-flex flex-wrap"
+                                        <form action="{{ route('data-kategori.destroy', $data->id) }}" class="d-flex flex-wrap"
                                             method="POST">
                                             @csrf
-                                            <a href="{{ route('data-layanan.edit', $data->id) }}" class="btn btn-sm btn-outline-info mx-2">
+                                            <a href="{{ route('data-kategori.edit', $data->id) }}" class="btn btn-sm btn-outline-info mx-2">
                                                 <i class="bx bx-edit"></i>
                                             </a>
                                             <button type="submit" class="btn btn-sm btn-outline-danger" id="hapusData">
@@ -74,7 +68,7 @@
             // Tampilkan SweetAlert saat tombol di klik
             Swal.fire({
                 icon: 'question',
-                title: 'Hapus Data Layanan?',
+                title: 'Hapus Data Kategori ?',
                 text: 'Apakah anda yakin untuk menghapus data ini?',
                 showCancelButton: true, // Tampilkan tombol batal
                 confirmButtonText: 'Ya',
