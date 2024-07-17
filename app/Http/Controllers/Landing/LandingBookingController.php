@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\Models\Kategori;
 use App\Models\Layanan;
 use App\Models\Review;
 use Illuminate\Http\Request;
@@ -15,10 +16,12 @@ class LandingBookingController extends Controller
     public function index()
     {
         $reviews = Review::latest()->get();
+        $kategoris = Kategori::latest()->get();
         $layanans = Layanan::latest()->paginate(5);
         return view('frontend.booking.booking', [
             'layanans' => $layanans,
             'reviews' => $reviews,
+            'kategoris' => $kategoris,
         ]);
     }
 
